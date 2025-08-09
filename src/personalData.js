@@ -8,6 +8,7 @@ import OnsGemak from "./assets/OnsGemak.png";
 import roadAlertsystem from "./assets/roadAlertsystem.png";
 import organics from "./assets/organics.png";
 import Kwik from "./assets/Kwik.png";
+import Alphanomic from "./assets/Alphanomic.png";
 
 const timelineItems = [
   {
@@ -113,16 +114,26 @@ const mockData = {
   projects: [
     {
       id: 1,
-      title: "RentyClub - Rental Platform",
+      title: "Staff Management System – HR Made Simple",
       category: "App Development",
       description:
-        "Built a property rental platform with features like search, filter, and wishlist.Enabled real-time chat functionality for seamless communication with property owners. Integrated Google Maps API for accurate and interactive location tracking",
-      image: RentyClub,
-      tags: ["React-native", "Firebase", "Chat"],
+        "A powerful all-in-one platform that helps organizations manage their people—from onboarding to offboarding—securely and efficiently. Organizations sign up via the web portal, set up branches, roles, and staff profiles, and share mobile app credentials directly with employees—no messy self-registrations, no security risks. HR Managers can onboard new hires, assign and track training, send policy updates, manage leave requests, handle resignations, and schedule shifts—all in one place. Employees get a clean mobile experience with instant notifications, easy access to policies, and real-time rota updates. Whether you have one office or a global network, the Staff Management System keeps everything organized, connected, and compliant—so your team can focus on doing their best work.",
+      image: Alphanomic,
+      tags: ["React-native", "Next.js","Node.js",],
       link: "#",
     },
     {
       id: 2,
+      title: "OnsGemak - AI based bill processing app",
+      category: "App Development",
+      description:
+        "OnsGemak is an AI-powered tool that automates invoice and bill management for businesses. Upload a photo or PDF, and the AI extracts all key data instantly — no manual entry needed. Manage, track, and validate invoices with ease, while monitoring your cash flow in real time. Stay organized and in control with this smart, fast, and accurate financial management platform.",
+      image: OnsGemak,
+      tags: ["React-native", "i18next", "sharing-intent"],
+      link: "#",
+    },
+     {
+      id: 3,
       title: "RoadAlertSystem - real-time incident reporting",
       category: "App Development",
       description:
@@ -132,17 +143,17 @@ const mockData = {
       link: "#",
     },
     {
-      id: 3,
-      title: "OnsGemak - AI based bill processing app",
+      id: 4,
+      title: "RentyClub - Rental Platform",
       category: "App Development",
       description:
-        "OnsGemak is an AI-powered tool that automates invoice and bill management for businesses. Upload a photo or PDF, and the AI extracts all key data instantly — no manual entry needed. Manage, track, and validate invoices with ease, while monitoring your cash flow in real time. Stay organized and in control with this smart, fast, and accurate financial management platform.",
-      image: OnsGemak,
-      tags: ["React-native", "i18next", "sharing-intent"],
+        "Built a property rental platform with features like search, filter, and wishlist.Enabled real-time chat functionality for seamless communication with property owners. Integrated Google Maps API for accurate and interactive location tracking",
+      image: RentyClub,
+      tags: ["React-native", "Firebase", "Chat"],
       link: "#",
     },
     {
-      id: 4,
+      id: 5,
       title: "Organics - online grocery retail app",
       category: "App Development",
       description:
@@ -152,7 +163,7 @@ const mockData = {
       link: "#",
     },
     {
-      id: 5,
+      id: 6,
       title: "Kwik Booking - Automotive Service App",
       category: "App Development",
       description:
