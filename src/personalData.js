@@ -2,7 +2,7 @@ import { FaGithub, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
 import profileImage from "./assets/Profile.jpg";
 import profileImage2 from "./assets/Profile2.jpg";
 import { HiOutlineMail } from "react-icons/hi";
-import { Code, Globe, Palette, Smartphone } from "lucide-react";
+import { Code, Globe, Palette, Smartphone, Brain } from "lucide-react";
 import RentyClub from "./assets/Rentyclub.png";
 import OnsGemak from "./assets/OnsGemak.png";
 import roadAlertsystem from "./assets/roadAlertsystem.png";
@@ -71,7 +71,7 @@ const testimonials = [
 const mockData = {
   personal: {
     name: "Harsh Siddhapura",
-    title: "React native Developer",
+    title: "React Native Developer & AI App Builder",
     tagline: "Crafting Digital Experiences",
     description:
       "I'm Harsh Siddhapura, a freelance Mobile App Developer with experience in building Android and iOS apps using React Native. Also skilled in iOS Native and Flutter for tailored, high-quality solutions. I create seamless, user-friendly apps that stand out in today’s market. Let’s turn your app idea into a powerful reality! 🚀",
@@ -87,6 +87,7 @@ const mockData = {
     { name: "Frontend Development", level: 90, icon: Code },
     { name: "Mobile Design", level: 85, icon: Smartphone },
     { name: "Web Development", level: 88, icon: Globe },
+    { name: "AI Integration", level: 90, icon: Brain },
   ],
 
   experience: [
@@ -119,7 +120,7 @@ const mockData = {
       description:
         "A powerful all-in-one platform that helps organizations manage their people—from onboarding to offboarding—securely and efficiently. Organizations sign up via the web portal, set up branches, roles, and staff profiles, and share mobile app credentials directly with employees—no messy self-registrations, no security risks. HR Managers can onboard new hires, assign and track training, send policy updates, manage leave requests, handle resignations, and schedule shifts—all in one place. Employees get a clean mobile experience with instant notifications, easy access to policies, and real-time rota updates. Whether you have one office or a global network, the Staff Management System keeps everything organized, connected, and compliant—so your team can focus on doing their best work.",
       image: Alphanomic,
-      tags: ["React-native", "Next.js","Node.js",],
+      tags: ["React-native", "Next.js", "Node.js",],
       link: "#",
     },
     {
@@ -129,7 +130,7 @@ const mockData = {
       description:
         "OnsGemak is an AI-powered tool that automates invoice and bill management for businesses. Upload a photo or PDF, and the AI extracts all key data instantly — no manual entry needed. Manage, track, and validate invoices with ease, while monitoring your cash flow in real time. Stay organized and in control with this smart, fast, and accurate financial management platform.",
       image: OnsGemak,
-      tags: ["React-native", "i18next", "sharing-intent"],
+      tags: ["React-native", "i18next", "sharing-intent", "AI"],
       link: "#",
     },
      {
@@ -249,14 +250,30 @@ const socialLinks = [
 const services = [
   {
     icon: Smartphone,
-    title: "Mobile Design",
+    title: "Mobile App Development",
     description:
-      "Designing mobile-first experiences that work seamlessly across all devices and platforms.",
+      "Building high-performance, cross-platform mobile applications for iOS and Android using React Native, Flutter, and Native iOS.",
     features: [
       "iOS & Android",
       "React Native",
+      "Flutter",
+      "Swift (iOS Native)",
       "App Store Guidelines",
       "Performance Optimization",
+    ],
+  },
+  {
+    icon: Brain,
+    title: "AI-Powered App Development",
+    description:
+      "Integrating cutting-edge AI capabilities into mobile and web applications — from chatbots to image recognition and beyond.",
+    features: [
+      "AI Chatbots",
+      "Image Recognition",
+      "NLP Integration",
+      "Machine Learning Models",
+      "OpenAI / Claude API",
+      "Voice Assistants",
     ],
   },
   {
