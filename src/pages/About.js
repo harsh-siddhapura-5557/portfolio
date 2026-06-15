@@ -1,6 +1,6 @@
 import React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, Code, Palette, BookOpen, Smartphone, Brain, Globe } from "lucide-react";
+import { ArrowRight, Code, Palette, BookOpen, Smartphone, Brain } from "lucide-react";
 import { mockData, timelineItems } from "../personalData";
 
 export const About = () => {

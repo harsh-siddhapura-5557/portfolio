@@ -20,24 +20,12 @@ export const Header = () => {
 
   /* refs for underline positioning */
   const menuRefs = useRef({});
-  const [underlineProps, setUnderlineProps] = useState({ left: 0, width: 0 });
-
   /* ----- change header bg on scroll ----- */
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  /* ----- underline follows active tab ----- */
-  useEffect(() => {
-    const el = menuRefs.current[activeItem];
-    if (el) {
-      const { left, width } = el.getBoundingClientRect();
-      const containerLeft = el.parentNode.getBoundingClientRect().left;
-      setUnderlineProps({ left: left - containerLeft, width });
-    }
-  }, [activeItem]);
 
   /* ----- IntersectionObserver to auto‑set tab on scroll ----- */
   useEffect(() => {

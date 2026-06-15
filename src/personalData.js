@@ -182,10 +182,7 @@ const mockData = {
       company: "FitBuddy ‑ Fitness Tracker",
       image:
         "https://images.squarespace-cdn.com/content/v1/5ec689480cc22c2d441e152f/4abb45fb-e456-4079-8076-b40ac0a89dfc/nlalor-photography-2021-06-17-Jason-Cholewa-Headshot-Web-Sized-1.jpg",
-      content:
-        "Harsh turned our half‑baked Figma into a polished React‑Native app in just six weeks. \
-  He owned the entire pipeline — pixel‑perfect UI, smooth animations, and Firebase integration. \
-  App launch day, we hit #4 on Product Hunt and onboarded 5 k+ users with zero crashes.",
+      content: "Harsh turned our half‑baked Figma into a polished React‑Native app in just six weeks. He owned the entire pipeline — pixel‑perfect UI, smooth animations, and Firebase integration. App launch day, we hit #4 on Product Hunt and onboarded 5 k+ users with zero crashes.",
       rating: 5,
     },
     {

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink, Star, X, ArrowUpRight } from "lucide-react";
+import { ExternalLink, Star, ArrowUpRight } from "lucide-react";
 import { mockData } from "../personalData";
 import { ProjectModal } from "../Components/ProjectModal";
 
