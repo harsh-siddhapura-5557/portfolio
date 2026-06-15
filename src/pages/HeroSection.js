@@ -7,7 +7,7 @@ export const HeroSection = () => {
   return (
     <section
       id="home"
-      className="min-h-screen relative overflow-hidden pt-24 pb-44 sm:pb-20 flex items-center justify-center"
+      className="min-h-screen relative overflow-hidden pt-32 pb-44 sm:pb-20 flex items-center justify-center"
       style={{
         background: "linear-gradient(135deg, #050505 0%, #0f0f1a 50%, #050505 100%)"
       }}
@@ -15,22 +15,61 @@ export const HeroSection = () => {
       {/* Animated Background Blobs */}
       <div className="absolute inset-0 pointer-events-none">
         <motion.div
-          className="absolute top-20 -left-20 w-64 h-64 bg-purple-600/10 blur-3xl rounded-full"
-          animate={{ x: [0, 30, 0], y: [0, 20, 0], scale: [1, 1.1, 1] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-20 -left-20 w-64 h-64 bg-purple-600/15 blur-3xl rounded-full"
+          animate={{ x: [0, 40, 0], y: [0, 30, 0], scale: [1, 1.2, 1] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
-          className="absolute bottom-20 -right-20 w-64 h-64 bg-blue-600/10 blur-3xl rounded-full"
-          animate={{ x: [0, -30, 0], y: [0, -20, 0], scale: [1, 1.15, 1] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          className="absolute bottom-20 -right-20 w-64 h-64 bg-blue-600/15 blur-3xl rounded-full"
+          animate={{ x: [0, -40, 0], y: [0, -30, 0], scale: [1, 1.25, 1] }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        />
+        <motion.div
+          className="absolute top-1/3 right-1/4 w-32 h-32 bg-cyan-400/10 blur-2xl rounded-full"
+          animate={{ x: [0, 20, 0], y: [0, -20, 0], scale: [1, 1.1, 1] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+        />
+      </div>
+
+      {/* Floating Geometric Shapes */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* Hexagon 1 */}
+        <motion.div
+          className="absolute top-20 left-10 w-12 h-12 border-2 border-purple-500/20 rotate-45"
+          animate={{ rotate: [45, 85, 45], y: [0, -20, 0], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        />
+        {/* Circle 1 */}
+        <motion.div
+          className="absolute top-40 right-16 w-8 h-8 border-2 border-cyan-500/20 rounded-full"
+          animate={{ scale: [1, 1.3, 1], y: [0, 15, 0], opacity: [0.3, 0.6, 0.3] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+        />
+        {/* Triangle 1 */}
+        <motion.div
+          className="absolute bottom-32 left-1/4 w-0 h-0 border-l-[12px] border-r-[12px] border-b-[20px] border-transparent border-b-purple-500/20"
+          animate={{ y: [0, -15, 0], rotate: [0, 15, 0], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        />
+        {/* Square 1 */}
+        <motion.div
+          className="absolute bottom-1/4 right-1/3 w-6 h-6 border-2 border-blue-500/20 rotate-12"
+          animate={{ rotate: [12, 45, 12], scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+        />
+        {/* Hexagon 2 */}
+        <motion.div
+          className="absolute top-1/2 right-8 w-10 h-10 border-2 border-cyan-400/20"
+          animate={{ rotate: [0, 60, 0], y: [0, 18, 0], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 2 }}
         />
       </div>
 
       {/* Grid Background Pattern */}
       <div className="absolute inset-0 opacity-10"
            style={{
-             backgroundImage: "linear-gradient(rgba(139, 92, 246, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(139, 92, 246, 0.3) 1px, transparent 1px)",
-             backgroundSize: "40px 40px"
+             backgroundImage: "linear-gradient(rgba(139, 92, 246, 0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(139, 92, 246, 0.4) 1px, transparent 1px)",
+             backgroundSize: "50px 50px"
            }}
       />
 
@@ -44,7 +83,7 @@ export const HeroSection = () => {
             transition={{ duration: 0.8 }}
           >
             <motion.div
-              className="inline-flex items-center gap-3 bg-gradient-to-r from-purple-900/30 via-blue-900/30 to-cyan-900/30 backdrop-blur-xl px-4 py-2 rounded-full border border-purple-500/30 mb-2"
+              className="inline-flex items-center gap-3 bg-gradient-to-r from-purple-900/30 via-blue-900/30 to-cyan-900/30 backdrop-blur-xl px-4 py-2 rounded-full border border-purple-500/30 mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}

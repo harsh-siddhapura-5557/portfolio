@@ -1,10 +1,16 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Home, User, Briefcase, Code, MessageSquare } from "lucide-react";
 import logo from "../assets/logo.png";
 
 /* ------------- config ------------- */
-const menuItems = ["Home", "About", "Work", "Services", "Contact"];
+const menuItems = [
+  { name: "Home", icon: <Home size={16} /> },
+  { name: "About", icon: <User size={16} /> },
+  { name: "Work", icon: <Briefcase size={16} /> },
+  { name: "Services", icon: <Code size={16} /> },
+  { name: "Contact", icon: <MessageSquare size={16} /> }
+];
 const SCROLL_OFFSET = 0.4; // 40% visibility threshold
 
 export const Header = () => {
@@ -35,8 +41,8 @@ export const Header = () => {
 
   /* ----- IntersectionObserver to auto‑set tab on scroll ----- */
   useEffect(() => {
-    const sections = menuItems.map((id) =>
-      document.getElementById(id.toLowerCase())
+    const sections = menuItems.map((item) =>
+      document.getElementById(item.name.toLowerCase())
     );
     const observer = new IntersectionObserver(
       (entries) => {
@@ -54,11 +60,11 @@ export const Header = () => {
   }, []);
 
   /* ----- click nav helper ----- */
-  const handleMenuClick = (item) => {
-    setActiveItem(item);
+  const handleMenuClick = (itemName) => {
+    setActiveItem(itemName);
     setIsMobileMenuOpen(false);
     document
-      .getElementById(item.toLowerCase())
+      .getElementById(itemName.toLowerCase())
       ?.scrollIntoView({ behavior: "smooth" });
   };
 
@@ -77,39 +83,47 @@ export const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <motion.div
-            className="text-2xl font-bold text-white"
-            whileHover={{ scale: 1.05, rotate: 2 }}
+            className="relative flex items-center gap-2"
+            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <img src={logo} alt="Logo" className="h-16 w-auto object-contain" />
+            <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 via-blue-600 to-cyan-400 rounded-full blur opacity-50 animate-pulse" />
+            <motion.div
+              className="relative bg-black/80 rounded-full p-2 border border-purple-500/30"
+              animate={{ rotate: [0, 2, -2, 0] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <img src={logo} alt="Logo" className="h-10 sm:h-12 w-auto object-contain" />
+            </motion.div>
           </motion.div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-6 lg:space-x-10">
             {menuItems.map((item, index) => (
               <motion.div
-                key={item}
+                key={item.name}
                 className="relative"
-                ref={(el) => (menuRefs.current[item] = el)}
+                ref={(el) => (menuRefs.current[item.name] = el)}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 * index }}
               >
                 <motion.button
-                  onClick={() => handleMenuClick(item)}
-                  className={`text-base font-semibold pb-1.5 transition-colors ${
-                    activeItem === item
+                  onClick={() => handleMenuClick(item.name)}
+                  className={`text-base font-semibold pb-1.5 transition-colors flex items-center gap-2 ${
+                    activeItem === item.name
                       ? "text-white"
                       : "text-gray-300 hover:text-white"
                   }`}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  {item}
+                  <span className={activeItem === item.name ? "text-purple-400" : ""}>{item.icon}</span>
+                  {item.name}
                 </motion.button>
 
                 {/* underline lives INSIDE the same box */}
-                {activeItem === item && (
+                {activeItem === item.name && (
                   <motion.div
                     layoutId="nav-underline"
                     className="absolute left-0 bottom-0 h-1 w-full bg-gradient-to-r from-purple-500 via-blue-600 to-cyan-400 rounded-full"
@@ -123,13 +137,14 @@ export const Header = () => {
           {/* CTA btn */}
           <motion.button
             onClick={() => handleMenuClick("Contact")}
-            className="hidden md:inline-block bg-gradient-to-r from-purple-500 via-blue-600 to-cyan-400 text-white px-7 py-2.5 rounded-full hover:shadow-2xl hover:shadow-purple-500/30 transition-all"
+            className="hidden md:inline-flex items-center gap-2 bg-gradient-to-r from-purple-500 via-blue-600 to-cyan-400 text-white px-7 py-2.5 rounded-full hover:shadow-2xl hover:shadow-purple-500/30 transition-all"
             whileHover={{ scale: 1.08, x: 3 }}
             whileTap={{ scale: 0.95 }}
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.5 }}
           >
+            <MessageSquare size={18} />
             Let's Talk
           </motion.button>
 
@@ -156,10 +171,10 @@ export const Header = () => {
             >
               {menuItems.map((item, index) => (
                 <motion.button
-                  key={item}
-                  onClick={() => handleMenuClick(item)}
-                  className={`text-base font-medium text-left px-3 py-3 rounded-xl ${
-                    activeItem === item
+                  key={item.name}
+                  onClick={() => handleMenuClick(item.name)}
+                  className={`text-base font-medium text-left px-3 py-3 rounded-xl flex items-center gap-3 ${
+                    activeItem === item.name
                       ? "text-white bg-gradient-to-r from-purple-500/20 via-blue-600/20 to-cyan-400/20 border border-purple-500/30"
                       : "text-gray-300 hover:text-white hover:bg-gray-800/50"
                   }`}
@@ -168,18 +183,20 @@ export const Header = () => {
                   transition={{ delay: 0.1 * index }}
                   whileHover={{ x: 8, backgroundColor: "rgba(139, 92, 246, 0.1)" }}
                 >
-                  {item}
+                  <span className={activeItem === item.name ? "text-purple-400" : "text-gray-400"}>{item.icon}</span>
+                  {item.name}
                 </motion.button>
               ))}
               <motion.button
                 onClick={() => handleMenuClick("Contact")}
-                className="w-full bg-gradient-to-r from-purple-500 via-blue-600 to-cyan-400 text-white py-3 rounded-full font-semibold"
+                className="w-full bg-gradient-to-r from-purple-500 via-blue-600 to-cyan-400 text-white py-3 rounded-full font-semibold flex items-center justify-center gap-2"
                 whileHover={{ scale: 1.03, boxShadow: "0 0 30px rgba(139, 92, 246, 0.5)" }}
                 whileTap={{ scale: 0.97 }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
               >
+                <MessageSquare size={18} />
                 Let's Talk
               </motion.button>
             </motion.div>
