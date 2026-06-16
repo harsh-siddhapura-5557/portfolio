@@ -185,6 +185,18 @@ export const HeroSection = () => {
             animate={{ opacity: 1, scale: 1, rotate: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
           >
+            {/* Decorative Background Blobs */}
+            <motion.div
+              className="absolute w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] bg-gradient-to-r from-purple-600/20 via-blue-600/20 to-cyan-500/20 rounded-full blur-3xl"
+              animate={{
+                scale: [1, 1.2, 1],
+                rotate: [0, 90, 0],
+              }}
+              transition={{
+                scale: { duration: 8, repeat: Infinity, ease: "easeInOut" },
+                rotate: { duration: 15, repeat: Infinity, ease: "linear" }
+              }}
+            />
             {/* Decorative Rings */}
             <motion.div
               className="absolute w-[200px] h-[200px] sm:w-[280px] sm:h-[280px] md:w-[340px] md:h-[340px] rounded-full border-2 border-purple-500/20"
@@ -202,13 +214,19 @@ export const HeroSection = () => {
                 scale: { duration: 5, repeat: Infinity, ease: "easeInOut" }
               }}
             />
+            {/* Extra Decorative Ring */}
+            <motion.div
+              className="absolute w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] md:w-[480px] md:h-[480px] rounded-full border border-dashed border-purple-400/10"
+              animate={{ rotate: -360 }}
+              transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+            />
 
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-500 via-blue-600 to-cyan-400 rounded-full blur-2xl opacity-30 scale-110" />
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-500 via-blue-600 to-cyan-400 rounded-full blur-3xl opacity-50 scale-125" />
               <img
                 src={mockData.personal.profileImage}
                 alt={mockData.personal.name}
-                className="relative w-36 h-36 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 object-cover rounded-full border-4 border-gray-800 shadow-2xl shadow-purple-500/30"
+                className="relative w-36 h-36 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 object-cover rounded-full border-4 border-gray-800 shadow-2xl shadow-purple-500/50"
               />
 
               {/* Floating Icons - Keep them but scale smaller on mobile */}

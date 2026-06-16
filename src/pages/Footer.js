@@ -78,6 +78,7 @@ export const Footer = () => {
             <ul className="flex flex-col gap-2">
               {[
                 "Mobile App Development",
+                "React Native Bug Fixing",
                 "AI/ML Integration",
                 "Web Development",
                 "UI/UX Design",

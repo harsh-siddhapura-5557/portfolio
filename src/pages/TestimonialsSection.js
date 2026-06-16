@@ -1,7 +1,11 @@
+
 import React from "react";
 import { motion } from "framer-motion";
-import { Star, MessageSquare } from "lucide-react";
+import { Star, MessageSquare, ChevronLeft, ChevronRight } from "lucide-react";
 import { mockData } from "../personalData";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Autoplay } from "swiper/modules";
+import "swiper/css";
 
 export const TestimonialsSection = () => {
   return (
@@ -61,74 +65,105 @@ export const TestimonialsSection = () => {
           </motion.p>
         </div>
 
-        {/* Testimonials Grid */}
-        <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
-          {mockData.testimonials.map((testimonial, index) => (
-            <motion.div
-              key={testimonial.name}
-              initial={{ opacity: 0, y: 50, scale: 0.9 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ delay: index * 0.15, duration: 0.6, type: "spring" }}
-              whileHover={{ y: -5, scale: 1.02 }}
-            >
-              <motion.div
-                className="group bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 border border-gray-800 shadow-2xl h-full"
-                whileHover={{
-                  borderColor: "rgba(139, 92, 246, 0.4)",
-                  boxShadow: "0 0 40px rgba(139, 92, 246, 0.15)"
-                }}
-              >
-                {/* Rating Stars */}
-                <div className="flex mb-4 sm:mb-6">
-                  <div className="flex gap-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star
-                        key={i}
-                        size={18} sm={20}
-                        className={i < testimonial.rating
-                          ? "text-yellow-400 fill-yellow-400"
-                          : "text-gray-600"}
-                      />
-                    ))}
-                  </div>
-                </div>
-
-                {/* Quote */}
-                <div className="mb-5 sm:mb-8">
-                  <p className="text-gray-300 leading-relaxed text-sm sm:text-base md:text-lg italic">
-                    "{testimonial.content}"
-                  </p>
-                </div>
-
-                {/* Client Info */}
-                <div className="flex items-center gap-3 sm:gap-4 pt-3 sm:pt-4 border-t border-gray-800">
-                  <motion.img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover border-2 border-gray-700"
-                    whileHover={{ scale: 1.1, borderColor: "#8b5cf6" }}
-                  />
-                  <div>
-                    <h4 className="text-white font-semibold text-base sm:text-lg">
-                      {testimonial.name}
-                    </h4>
-                    <div className="flex flex-col sm:flex-row sm:gap-2">
-                      <p className="text-purple-400 font-medium text-sm sm:text-base">
-                        {testimonial.role}
-                      </p>
-                      {testimonial.company && (
-                        <span className="text-gray-500 text-xs sm:text-sm">
-                          {testimonial.company}
-                        </span>
-                      )}
+        {/* Testimonials Carousel */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="relative"
+        >
+          <Swiper
+            modules={[Navigation, Autoplay]}
+            spaceBetween={30}
+            slidesPerView={1}
+            loop={true}
+            autoplay={{
+              delay: 4000,
+              disableOnInteraction: false,
+            }}
+            breakpoints={{
+              768: {
+                slidesPerView: 2,
+              },
+              1024: {
+                slidesPerView: 2,
+              },
+            }}
+            navigation={{
+              nextEl: ".testimonial-next",
+              prevEl: ".testimonial-prev",
+            }}
+            className="!pb-12"
+          >
+            {mockData.testimonials.map((testimonial, index) => (
+              <SwiperSlide key={testimonial.name} className="h-auto">
+                <motion.div
+                  whileHover={{ y: -5, scale: 1.02 }}
+                  className="group bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 border border-gray-800/60 shadow-2xl h-full hover:border-purple-500/40 hover:shadow-purple-500/20 transition-all duration-300"
+                >
+                  {/* Rating Stars */}
+                  <div className="flex mb-4 sm:mb-6">
+                    <div className="flex gap-1">
+                      {[...Array(5)].map((_, i) => (
+                        <Star
+                          key={i}
+                          size={18}
+                          sm={20}
+                          className={i < testimonial.rating
+                            ? "text-yellow-400 fill-yellow-400"
+                            : "text-gray-600"}
+                        />
+                      ))}
                     </div>
                   </div>
-                </div>
-              </motion.div>
-            </motion.div>
-          ))}
-        </div>
+
+                  {/* Quote */}
+                  <div className="mb-5 sm:mb-8">
+                    <p className="text-gray-300 leading-relaxed text-sm sm:text-base md:text-lg italic">
+                      "{testimonial.content}"
+                    </p>
+                  </div>
+
+                  {/* Client Info */}
+                  <div className="flex items-center gap-3 sm:gap-4 pt-3 sm:pt-4 border-t border-gray-800">
+                    <motion.img
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      className="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover border-2 border-gray-700"
+                      whileHover={{ scale: 1.1, borderColor: "#8b5cf6" }}
+                    />
+                    <div>
+                      <h4 className="text-white font-semibold text-base sm:text-lg">
+                        {testimonial.name}
+                      </h4>
+                      <div className="flex flex-col sm:flex-row sm:gap-2">
+                        <p className="text-purple-400 font-medium text-sm sm:text-base">
+                          {testimonial.role}
+                        </p>
+                        {testimonial.company && (
+                          <span className="text-gray-500 text-xs sm:text-sm">
+                            {testimonial.company}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+
+          {/* Navigation Buttons - Centered Below Carousel */}
+          <div className="flex justify-center items-center gap-4 mt-2">
+            <button className="testimonial-prev w-12 h-12 rounded-full bg-gradient-to-br from-purple-900/50 to-blue-900/50 border border-purple-500/30 flex items-center justify-center text-white hover:from-purple-800/70 hover:to-blue-800/70 transition-all">
+              <ChevronLeft size={24} />
+            </button>
+            <button className="testimonial-next w-12 h-12 rounded-full bg-gradient-to-br from-purple-900/50 to-blue-900/50 border border-purple-500/30 flex items-center justify-center text-white hover:from-purple-800/70 hover:to-blue-800/70 transition-all">
+              <ChevronRight size={24} />
+            </button>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

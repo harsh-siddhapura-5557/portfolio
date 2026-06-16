@@ -2,7 +2,7 @@ import { FaGithub, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
 import profileImage from "./assets/Profile.jpg";
 import profileImage2 from "./assets/Profile2.jpg";
 import { HiOutlineMail } from "react-icons/hi";
-import { Code, Globe, Palette, Smartphone, Brain } from "lucide-react";
+import { Code, Globe, Palette, Smartphone, Brain, Zap, Bug } from "lucide-react";
 import RentyClub from "./assets/Rentyclub.png";
 import OnsGemak from "./assets/OnsGemak.png";
 import roadAlertsystem from "./assets/roadAlertsystem.png";
@@ -257,6 +257,20 @@ const services = [
       "Swift (iOS Native)",
       "App Store Guidelines",
       "Performance Optimization",
+    ],
+  },
+  {
+    icon: Bug,
+    title: "React Native Bug Fixing & Optimization",
+    description:
+      "Fixing complex React Native bugs, crashes, and performance issues. Making your apps faster, smoother, and more stable.",
+    features: [
+      "Crash Debugging",
+      "Performance Optimization",
+      "Memory Leak Fixes",
+      "Slow App Speedup",
+      "UI Glitch Resolution",
+      "State Management Fixes"
     ],
   },
   {

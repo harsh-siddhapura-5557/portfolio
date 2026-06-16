@@ -2,6 +2,7 @@ import React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Code, Palette, BookOpen, Smartphone, Brain } from "lucide-react";
 import { mockData, timelineItems } from "../personalData";
+import { AnimatedCounter } from "../Components/AnimatedCounter";
 
 export const About = () => {
   const ref = React.useRef(null);
@@ -22,9 +23,9 @@ export const About = () => {
   ];
 
   const stats = [
-    { label: "Years Experience", value: "3+", icon: <BookOpen size={20} /> },
-    { label: "Projects Completed", value: "20+", icon: <Code size={20} /> },
-    { label: "Happy Clients", value: "15+", icon: <Palette size={20} /> }
+    { label: "Years Experience", number: 2, suffix: "+", icon: <BookOpen size={20} /> },
+    { label: "Projects Completed", number: 20, suffix: "+", icon: <Code size={20} /> },
+    { label: "Happy Clients", number: 15, suffix: "+", icon: <Palette size={20} /> }
   ];
 
   return (
@@ -196,7 +197,7 @@ export const About = () => {
                 {stat.icon}
               </div>
               <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-1">
-                {stat.value}
+                <AnimatedCounter to={stat.number} suffix={stat.suffix || ""} />
               </div>
               <div className="text-xs sm:text-sm md:text-base text-gray-400">
                 {stat.label}

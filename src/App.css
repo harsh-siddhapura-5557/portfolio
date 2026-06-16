@@ -133,6 +133,20 @@ html {
   transform: translateY(-5px);
 }
 
+/* Testimonial Navigation Buttons */
+.testimonial-prev,
+.testimonial-next {
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.testimonial-prev:hover,
+.testimonial-next:hover {
+  background: rgba(139, 92, 246, 0.4);
+  border-color: rgba(139, 92, 246, 0.6);
+  transform: scale(1.1);
+}
+
 /* Media Queries */
 @media (max-width: 768px) {
   .text-7xl {
@@ -147,3 +161,5 @@ html {
     font-size: 2rem;
   }
 }
+
+
